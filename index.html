@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Prashant Vilas Ghope | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #09090b; color: #d4d0e0; font-family: 'Space Grotesk', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+:root {
+  --lime: #c8f135;
+  --lime-dim: rgba(200,241,53,0.1);
+  --lime-border: rgba(200,241,53,0.2);
+  --white: #f4f0ff;
+  --muted: #6b6680;
+  --border: rgba(255,255,255,0.07);
+  --card: #101014;
+  --card2: #16161c;
+}
+
+/* ── NAVBAR ── */
+.nav {
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: rgba(9,9,11,0.92);
+  backdrop-filter: blur(16px);
+  z-index: 99;
+}
+.logo { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--lime); letter-spacing: 0.08em; }
+.nav-links { display: flex; gap: 0.5rem; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 100px;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.nav-links a:hover { color: var(--lime); border-color: var(--lime-border); background: var(--lime-dim); }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  min-height: 88vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  gap: 4rem;
+  align-items: center;
+}
+.tag-row { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.tag-green { background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+.tag-lime  { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-border); }
+.tag-blue  { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+.h1 {
+  font-size: clamp(3.2rem, 6.5vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.h1 em { font-style: normal; color: var(--lime); }
+.college {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.college-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--lime); }
+.bio { font-size: 0.93rem; color: var(--muted); line-height: 1.85; max-width: 480px; margin-bottom: 2.5rem; }
+.btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn {
+  padding: 0.75rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+.btn-lime { background: var(--lime); color: #09090b; }
+.btn-lime:hover { background: #d6f74d; transform: translateY(-2px); }
+.btn-ghost { border: 1px solid var(--border); color: var(--white); background: transparent; }
+.btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
+
+/* ── STAT CARDS ── */
+.hero-right { display: flex; flex-direction: column; gap: 1rem; }
+.big-stat {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.big-stat::before {
+  content: attr(data-num);
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-size: 7rem;
+  font-weight: 800;
+  color: rgba(200,241,53,0.04);
+  line-height: 1;
+  pointer-events: none;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.bs-val { font-size: 2.8rem; font-weight: 800; color: var(--lime); line-height: 1; margin-bottom: 0.3rem; letter-spacing: -0.04em; }
+.bs-lbl { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'DM Mono', monospace; }
+.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.small-stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+.ss-val { font-size: 1.8rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; }
+.ss-val.lime { color: var(--lime); }
+.ss-lbl { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-family: 'DM Mono', monospace; }
+
+/* ── DIVIDER ── */
+.divider { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+.divider hr { border: none; border-top: 1px solid var(--border); }
+
+/* ── SECTIONS ── */
+.sec { max-width: 1200px; margin: 0 auto; padding: 5rem 3rem; }
+.sec-top { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; }
+.sec-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.sec-h { font-size: 2rem; font-weight: 700; color: var(--white); letter-spacing: -0.03em; }
+.sec-count { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+
+/* ── BENTO PROJECTS ── */
+.proj-bento { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 1rem; }
+.pb {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  transition: all 0.3s;
+}
+.pb:hover { background: var(--card2); border-color: rgba(200,241,53,0.2); transform: translateY(-3px); }
+.pb.wide { grid-column: span 2; }
+.pb-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+.pb-ico { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.ico-a { background: var(--lime-dim); border: 1px solid var(--lime-border); }
+.ico-b { background: rgba(96,165,250,0.1); border: 1px solid rgba(96,165,250,0.15); }
+.ico-c { background: rgba(244,114,182,0.1); border: 1px solid rgba(244,114,182,0.15); }
+.ico-d { background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.15); }
+.pb-chip {
+  font-size: 0.65rem; font-weight: 600;
+  padding: 0.18rem 0.55rem; border-radius: 4px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.chip-a { background: var(--lime-dim); color: var(--lime); border: 1px solid var(--lime-border); }
+.chip-b { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.15); }
+.chip-c { background: rgba(244,114,182,0.1); color: #f472b6; border: 1px solid rgba(244,114,182,0.15); }
+.chip-d { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.15); }
+.wip-pill {
+  font-size: 0.6rem; padding: 0.15rem 0.45rem;
+  background: rgba(251,191,36,0.1); color: #fbbf24;
+  border-radius: 100px; margin-left: 0.4rem;
+  border: 1px solid rgba(251,191,36,0.15);
+}
+.pb-name { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+.pb-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+/* ── CERTIFICATIONS ── */
+.certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+  text-decoration: none; transition: all 0.2s;
+}
+.cert-card:hover { background: var(--card2); border-color: var(--lime-border); transform: translateY(-2px); }
+.cert-num-box {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--lime-dim); border: 1px solid var(--lime-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--lime); flex-shrink: 0;
+}
+.cert-body { flex: 1; }
+.cert-name { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 0.1rem; }
+.cert-by   { font-size: 0.73rem; color: var(--muted); }
+.cert-go   { font-size: 0.85rem; color: var(--muted); transition: color 0.2s; }
+.cert-card:hover .cert-go { color: var(--lime); }
+
+/* ── CONTACT ── */
+.contact-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.ct-divider { background: var(--border); height: 60px; align-self: center; }
+.ct-ico  { font-size: 1.1rem; margin-bottom: 0.75rem; }
+.ct-lbl  { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.ct-val  { font-size: 0.88rem; color: var(--white); font-weight: 500; }
+.ct-val a { color: var(--white); text-decoration: none; transition: color 0.2s; }
+.ct-val a:hover { color: var(--lime); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2.5rem 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left  { animation: up 0.65s ease forwards; }
+.hero-right { animation: up 0.65s 0.1s ease forwards; opacity: 0; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="logo">pvg.dev</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#certs">Certs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="tag-row">
+      <span class="tag tag-green">● Available</span>
+      <span class="tag tag-lime">Engineering</span>
+      <span class="tag tag-blue">1st Year · MITAOE</span>
+    </div>
+    <h1 class="h1">Prashant<br><em>Vilas Ghope</em></h1>
+    <p class="college"><span class="college-dot"></span>MIT Academy of Engineering, Alandi</p>
+    <p class="bio">
+      Building real things — metal detectors, fabricated prototypes, CAD designs,
+      and AI-powered tools. 1st Year engineering student who ships projects, not just ideas.
+    </p>
+    <div class="btns">
+      <a href="#projects" class="btn btn-lime">View Projects →</a>
+      <a href="#contact"  class="btn btn-ghost">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="big-stat" data-num="4">
+      <div class="bs-val">4</div>
+      <div class="bs-lbl">Projects Built</div>
+    </div>
+    <div class="stat-row">
+      <div class="small-stat">
+        <div class="ss-val lime">5</div>
+        <div class="ss-lbl">Certifications</div>
+      </div>
+      <div class="small-stat">
+        <div class="ss-val">1st</div>
+        <div class="ss-lbl">Year</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><hr/></div>
+
+<!-- PROJECTS -->
+<div class="sec" id="projects">
+  <div class="sec-top">
+    <div>
+      <div class="sec-label">What I've Made</div>
+      <div class="sec-h">Projects</div>
+    </div>
+    <div class="sec-count">04 total</div>
+  </div>
+  <div class="proj-bento">
+
+    <div class="pb wide">
+      <div class="pb-header">
+        <div class="pb-ico ico-a">📡</div>
+        <span class="pb-chip chip-a">IEEE Subject</span>
+      </div>
+      <div class="pb-name">Metal Detector</div>
+      <p class="pb-desc">Designed and built a fully working metal detector using electromagnetic induction principles — built as part of the IEEE subject in 1st Year. Focused on circuit design and real-world testing.</p>
+    </div>
+
+    <div class="pb">
+      <div class="pb-header">
+        <div class="pb-ico ico-b">📱</div>
+        <span class="pb-chip chip-b">FAB LAB</span>
+      </div>
+      <div class="pb-name">Foldable Mobile Stand</div>
+      <p class="pb-desc">Ergonomic, portable stand fabricated at the FAB LAB. Designed for ease of manufacturing and everyday use.</p>
+    </div>
+
+    <div class="pb">
+      <div class="pb-header">
+        <div class="pb-ico ico-c">🦷</div>
+        <span class="pb-chip chip-c">FAB LAB · CAD</span>
+      </div>
+      <div class="pb-name">Toothpaste Squeezer</div>
+      <p class="pb-desc">CAD design focused on functional geometry and household usability. Created in FAB LAB using design software.</p>
+    </div>
+
+    <div class="pb wide">
+      <div class="pb-header">
+        <div class="pb-ico ico-d">👕</div>
+        <span class="pb-chip chip-d">Design Thinking <span class="wip-pill">In Progress</span></span>
+      </div>
+      <div class="pb-name">Foldable Clothes Stand</div>
+      <p class="pb-desc">Currently building a space-efficient foldable clothes stand as part of the Design Thinking subject. Emphasis on sustainability, user convenience, and minimal footprint when folded.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"><hr/></div>
+
+<!-- CERTIFICATIONS -->
+<div class="sec" id="certs">
+  <div class="sec-top">
+    <div>
+      <div class="sec-label">Credentials</div>
+      <div class="sec-h">Certifications</div>
+    </div>
+    <div class="sec-count">05 total</div>
+  </div>
+  <div class="certs-grid">
+    <a href="https://github.com/prashantghope14-create/Digital-Portfolio/blob/5f66117b714dc958b3cf4d45653ff12d50782fa5/Completion%20Certificate%20_%20SkillsBuild%20java.pdf"
+       target="_blank" class="cert-card">
+      <div class="cert-num-box">01</div>
+      <div class="cert-body">
+        <div class="cert-name">Learn JavaScript</div>
+        <div class="cert-by">Codecademy</div>
+      </div>
+      <span class="cert-go">↗</span>
+    </a>
+    <a href="https://github.com/prashantghope14-create/Digital-Portfolio/blob/5f66117b714dc958b3cf4d45653ff12d50782fa5/IBMDesign20260317-33-1tzokb%20(1).pdf"
+       target="_blank" class="cert-card">
+      <div class="cert-num-box">02</div>
+      <div class="cert-body">
+        <div class="cert-name">Artificial Intelligence Fundamentals</div>
+        <div class="cert-by">IBM</div>
+      </div>
+      <span class="cert-go">↗</span>
+    </a>
+    <a href="https://github.com/prashantghope14-create/Digital-Portfolio/blob/5f66117b714dc958b3cf4d45653ff12d50782fa5/IBMDesign20260317-33-mjkcxd%20(1).pdf"
+       target="_blank" class="cert-card">
+      <div class="cert-num-box">03</div>
+      <div class="cert-body">
+        <div class="cert-name">Career Management Essentials</div>
+        <div class="cert-by">IBM</div>
+      </div>
+      <span class="cert-go">↗</span>
+    </a>
+    <a href="https://github.com/prashantghope14-create/Digital-Portfolio/blob/5f66117b714dc958b3cf4d45653ff12d50782fa5/certificate-e4jdya5f5p42-1776060061.pdf"
+       target="_blank" class="cert-card">
+      <div class="cert-num-box">04</div>
+      <div class="cert-body">
+        <div class="cert-name">Anthropic Claude 101</div>
+        <div class="cert-by">Anthropic</div>
+      </div>
+      <span class="cert-go">↗</span>
+    </a>
+    <a href="https://github.com/prashantghope14-create/Digital-Portfolio/blob/5f66117b714dc958b3cf4d45653ff12d50782fa5/certificate-xc2djf42ha4i-1776108570.pdf"
+       target="_blank" class="cert-card">
+      <div class="cert-num-box">05</div>
+      <div class="cert-body">
+        <div class="cert-name">AI Fluency Framework and Foundation</div>
+        <div class="cert-by">Anthropic</div>
+      </div>
+      <span class="cert-go">↗</span>
+    </a>
+  </div>
+</div>
+
+<div class="divider"><hr/></div>
+
+<!-- CONTACT -->
+<div class="sec" id="contact">
+  <div class="sec-top">
+    <div>
+      <div class="sec-label">Reach Out</div>
+      <div class="sec-h">Contact</div>
+    </div>
+  </div>
+  <div class="contact-wrap">
+    <div class="ct-block">
+      <div class="ct-ico">✉️</div>
+      <div class="ct-lbl">Email</div>
+      <div class="ct-val">
+        <a href="mailto:prashantghope783@gmail.com">prashantghope783@gmail.com</a>
+      </div>
+    </div>
+    <div class="ct-divider"></div>
+    <div class="ct-block">
+      <div class="ct-ico">📞</div>
+      <div class="ct-lbl">Phone</div>
+      <div class="ct-val">+91 9403939513</div>
+    </div>
+    <div class="ct-divider"></div>
+    <div class="ct-block">
+      <div class="ct-ico">🐙</div>
+      <div class="ct-lbl">GitHub</div>
+      <div class="ct-val">
+        <a href="https://github.com/prashantghope14-create" target="_blank">prashantghope14-create</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>pvg.dev &nbsp;·&nbsp; prashant vilas ghope &nbsp;·&nbsp; mitaoe &nbsp;·&nbsp; 2025</footer>
+
+</body>
+</html>
